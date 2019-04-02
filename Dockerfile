@@ -5,4 +5,5 @@ RUN adduser -u 1000 -D jenkins && \
   | ash -s v$GOLANGCI_LINT_VERSION && \
   apk add --no-cache make git gcc musl-dev glib-dev cairo  gtk+3.0-dev && \
 mkdir /.cache && chmod -R 777 /.cache $GOPATH
+RUN chown 1000 /go/pkg/mod
 RUN go get github.com/gotk3/gotk3/gtk
